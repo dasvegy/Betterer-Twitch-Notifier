@@ -2,6 +2,7 @@ import requests
 import json
 from functions.notify import send_notification
 
+
 # Terminal colors
 red = '\033[31m'
 green = '\033[32m'
