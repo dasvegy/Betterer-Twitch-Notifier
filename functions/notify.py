@@ -15,6 +15,8 @@ def send_notification(username, data):
     # Set absolute path if necessary
     if platform.system() == "Linux":
         pfp_path = os.path.abspath(pfp_path)
+    if platform.system() == "Windows":
+        pfp_path = f"pfps/{username}.ico"
 
     notification.notify(
         title=f"{username} is online!",
