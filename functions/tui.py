@@ -20,7 +20,6 @@ def tui():
         get_usernames()
     elif option == "2":
         print("Selected Option 2, Adding Streamers to list")
-        print(f"{Colors.red}!!! NOT IMPLEMENTED YET !!!{Colors.reset} \n")
 
         add_strmrs_to_file()
     elif option == "3":

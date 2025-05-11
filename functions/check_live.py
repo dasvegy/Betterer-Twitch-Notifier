@@ -8,7 +8,7 @@ def check_streamer_live(username):
 
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
-        print(f"Loading Streamer {Colors.purple}{Colors.bold}{username}{Colors.reset}")
+        print(f"Loading Streamer: {Colors.purple}{Colors.bold}{username}{Colors.reset}")
         print("Successful: code 200")
         data = response.json()
 
