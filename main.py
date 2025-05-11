@@ -10,4 +10,3 @@ if __name__ == "__main__":
 # Config,
 # Options GUI
 # in colors checken ob man CMD benutzt, und den colors befehl nutzten, da windows ein hundesohn ist
-#

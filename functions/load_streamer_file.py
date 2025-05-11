@@ -1,6 +1,7 @@
 from functions.check_live import check_streamer_live
 import json
 
+
 preset = [
     "dasvegy"
 ]
@@ -12,12 +13,11 @@ def load_streamers(filepath="streamers.json"):
         with open(filepath, "r") as file:
             return json.load(file)
     except FileNotFoundError:
-        with open("streamers.json", "w") as outfile:
+        with open(filepath, "w") as outfile:
             outfile.write(json_preset)
-            print("streamers.json created, but have not written any Streamers in it"
-                  "\n   (exept me so you know how you have to do it)")
-            with open(filepath, "r") as file:
-                return json.load(file)
+            print("streamers.json created, but have not written any streamers in it."
+                  "\n(Except for the default one 'dasvegy' to show you the format)")
+        return json.loads(json_preset)
 
 
 def get_usernames():
