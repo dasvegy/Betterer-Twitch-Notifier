@@ -21,3 +21,11 @@ def add_strmrs_to_file():
 
     save_streamers(combined)
     print(f"New Streamerlist: {Colors.bold}{Colors.purple}{combined} {Colors.reset}")
+
+    option = input(f"{Colors.purple}{Colors.bold}Betterer Twitch Notifyer{Colors.reset}"
+                           "\n------------------------ "
+                           f"\n{Colors.yellow}1. placeholder{Colors.reset}"
+                           "\n2. Change how often in a hour it should check for online Streamers"
+                           "\n\nB: Go Back "
+                           "\nQ: Quit "
+                           "\n> ")
