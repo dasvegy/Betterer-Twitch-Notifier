@@ -23,4 +23,4 @@ def send_notification(username, data):
         message=f'{data[0]["stream"]["title"]}',
         timeout=3,
         app_icon=pfp_path,
-    )
+    )   

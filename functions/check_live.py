@@ -7,6 +7,7 @@ from functions.notify import send_notification
 red = '\033[31m'
 green = '\033[32m'
 white = '\033[0m'
+purple = '\033[35m'
 
 def check_streamer_live(username):
     url = f"https://api.ivr.fi/v2/twitch/user?login={username}"
@@ -25,5 +26,8 @@ def check_streamer_live(username):
         else:
             print(f"\n{green}Streamer Online\n{white}")
             send_notification(username, data)
+
+        print(f"DONE LOADING STREAMER {purple}{username}{white}\n")
+        print("---------------------------------------------------------")
     else:
         print("Error")
