@@ -20,7 +20,7 @@ def tui():
         get_usernames()
     elif option == "2":
         print("Selected Option 2, Adding Streamers to list")
-        add_strmrs_to_file()
+        add_strmrs_to_file(tui)
 
     elif option == "3":
         print("Selected Option 3, loading Settings\n")

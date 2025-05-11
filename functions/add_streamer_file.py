@@ -9,7 +9,7 @@ def save_streamers(streamers):
     with open(filepath, "w") as f:
         json.dump(streamers, f, indent=4)
 
-def add_strmrs_to_file():
+def add_strmrs_to_file(back_callback):
     os.system('cls' if os.name == 'nt' else 'clear')
     strmrs_already_there = load_streamers()
     print(f"Streamers already listed: {Colors.bold}{Colors.purple}{strmrs_already_there}{Colors.reset}\n")
@@ -20,12 +20,7 @@ def add_strmrs_to_file():
     combined = strmrs_already_there + [s for s in new_strmrs if s not in strmrs_already_there]
 
     save_streamers(combined)
-    print(f"New Streamerlist: {Colors.bold}{Colors.purple}{combined} {Colors.reset}")
+    print(f"New Streamerlist: {Colors.bold}{Colors.purple}{combined} {Colors.reset} \n")
 
-    option = input(f"{Colors.purple}{Colors.bold}Betterer Twitch Notifyer{Colors.reset}"
-                           "\n------------------------ "
-                           f"\n{Colors.yellow}1. placeholder{Colors.reset}"
-                           "\n2. Change how often in a hour it should check for online Streamers"
-                           "\n\nB: Go Back "
-                           "\nQ: Quit "
-                           "\n> ")
+    input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")
+    back_callback()

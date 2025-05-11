@@ -7,6 +7,7 @@ def settings(back_callback):
                     "\n------------------------ "
                     f"\n{Colors.yellow}1. placeholder{Colors.reset}"
                     "\n2. Change how often in a hour it should check for online Streamers"
+                    "\n3. Autostart on Login"
                     "\n\nB: Go Back "
                     "\nQ: Quit "
                     "\n> ")
