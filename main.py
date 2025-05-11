@@ -1,12 +1,8 @@
-from functions.check_live import check_streamer_live
-from functions.load_streamer_file import load_streamers
-
-def main():
-    for username in load_streamers():
-        check_streamer_live(username)
+from functions.load_streamer_file import get_usernames
+from functions.tui import tui
 
 if __name__ == "__main__":
-    main()
+    tui()
 
 # to-do:
 # Tray?,
