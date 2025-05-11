@@ -1,13 +1,6 @@
-import requests
-import json
 from functions.notify import send_notification
-
-
-# Terminal colors
-red = '\033[31m'
-green = '\033[32m'
-white = '\033[0m'
-purple = '\033[35m'
+from functions.colors import Colors
+import requests
 
 def check_streamer_live(username):
     url = f"https://api.ivr.fi/v2/twitch/user?login={username}"
@@ -15,19 +8,19 @@ def check_streamer_live(username):
 
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
+        print(f"Loading Streamer {Colors.purple}{Colors.bold}{username}{Colors.reset}")
         print("Successful: code 200")
         data = response.json()
-        print("JSON OUTPUT: \n\n", json.dumps(data, indent=4), "\n")
 
         islive = data[0]["stream"]
 
         if islive is None:
-            print(f"\n{red}Streamer Offline\n{white}")
+            print(f"\n{Colors.bold}{Colors.red}Streamer Offline\n{Colors.reset}")
         else:
-            print(f"\n{green}Streamer Online\n{white}")
+            print(f"\n{Colors.bold}{Colors.green}Streamer Online\n{Colors.reset}")
             send_notification(username, data)
 
-        print(f"DONE LOADING STREAMER {purple}{username}{white}\n")
-        print("---------------------------------------------------------")
+        print(f"DONE LOADING STREAMER {Colors.purple}{Colors.bold}{username}{Colors.reset}")
+        print("---------------------------------------------------------\n")
     else:
         print("Error")

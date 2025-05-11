@@ -15,7 +15,7 @@ def load_streamers(filepath="streamers.json"):
         with open("streamers.json", "w") as outfile:
             outfile.write(json_preset)
             print("streamers.json created, but have not written any Streamers in it"
-                  "\n(exept me so you know how you have to do it)")
+                  "\n   (exept me so you know how you have to do it)")
             with open(filepath, "r") as file:
                 return json.load(file)
 

@@ -1,15 +1,12 @@
 from functions.load_streamer_file import get_usernames
-
-bold = '\033[01m'
-disable = '\033[02m'
-
-purple = '\033[35m'
-red = '\033[31m'
-white = '\033[0m'
+from functions.add_streamer_file import add_strmrs_to_file
+from functions.colors import Colors
+import os
 
 
 def tui():
-    option = input(f"{purple}{bold}Betterer Twitch Notifyer{white}{disable}"
+    os.system('cls' if os.name == 'nt' else 'clear')
+    option = input(f"{Colors.purple}{Colors.bold}Betterer Twitch Notifyer{Colors.reset}"
                    "\n------------------------ "
                    "\n1. Check Streamers in the list "
                    "\n2. Add Streamer to the list "
@@ -19,16 +16,20 @@ def tui():
 
     print("")
     if option == "1":
-        print("Selected Option 1, Checking for Streamers")
+        print("Selected Option 1, Checking for Streamers\n")
         get_usernames()
     elif option == "2":
         print("Selected Option 2, Adding Streamers to list")
-        print(f"{red}!!! NOT IMPLEMENTED YET !!!{white} \nQuitting now...")
-        quit()
+        print(f"{Colors.red}!!! NOT IMPLEMENTED YET !!!{Colors.reset} \n")
+
+        add_strmrs_to_file()
     elif option == "3":
         print("Selected Option 3, loading Settings")
-        print(f"{red}!!! NOT IMPLEMENTED YET !!!{white} \nQuitting now...")
+        print(f"{Colors.red}!!! NOT IMPLEMENTED YET !!!{Colors.reset} \nQuitting now...")
+        quit()
+    elif option == "q" or option == "Q":
+        print("Selected Option Q, Exiting...")
         quit()
     else:
-        print("Error: Nothing Selected or was to dumb to type right")
+        print(f"{Colors.red}{Colors.bold}Error: Nothing Selected or was to dumb to type right{Colors.reset}")
         quit()
