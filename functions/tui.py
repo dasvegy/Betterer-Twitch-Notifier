@@ -1,5 +1,5 @@
 from functions.load_streamer_file import get_usernames
-from functions.add_streamer_file import add_strmrs_to_file
+from functions.streamer_to_file import add_strmrs_to_file, rm_strmrs_to_file, clear_strmrs_to_file
 from functions.settings import settings
 from functions.colors import Colors
 import os
@@ -11,19 +11,30 @@ def tui():
                    "\n------------------------ "
                    "\n1. Check Streamers in the list "
                    "\n2. Add Streamer to the list "
-                   "\n3. Change Settings "
+                   "\n3. Remove Streamer to the list "
+                   "\n4. Clear Streamerlist "
+                   "\n5. Change Settings "
                    "\n\nQ: Quit "
                    "\n> ")
     print("")
     if option == "1":
         print("Selected Option 1, Checking for Streamers\n")
         get_usernames()
+
     elif option == "2":
-        print("Selected Option 2, Adding Streamers to list")
+        print("Selected Option 2, Add Streamers to list")
         add_strmrs_to_file(tui)
 
     elif option == "3":
-        print("Selected Option 3, loading Settings\n")
+        print("Selected Option 3, Remove Streamers to list")
+        rm_strmrs_to_file(tui)
+
+    elif option == "4":
+        print("Selected Option 4, Clear Streamerlist")
+        clear_strmrs_to_file(tui)
+
+    elif option == "5":
+        print("Selected Option 5, loading Settings\n")
         settings(tui)
 
     elif option == "q" or option == "Q":
