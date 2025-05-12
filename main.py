@@ -4,10 +4,7 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser(description="Betterer Twitch Notifyer")
-
-    # Argumente hinzufügen
     parser.add_argument('--tui', action='store_true', help="Start the TUI menu")
-
     args = parser.parse_args()
 
     if args.tui:
