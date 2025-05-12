@@ -6,7 +6,6 @@ class StreamerNotFoundError(Exception):
     def __init__(self, username):
         super().__init__(f"Streamer '{username}' not found or returned no data.")
 
-
 def check_streamer_live(username):
     url = f"https://api.ivr.fi/v2/twitch/user?login={username}"
     headers = {"User-Agent": "Mozilla/5.0"}
