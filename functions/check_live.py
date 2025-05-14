@@ -32,7 +32,7 @@ def check_streamer_live(username):
                 pass
         else:
             if username in strmrs_already_listed:
-                print("Already send a notification for the Streamer, Next oooooooonne")
+                print(f"{Colors.orange}{Colors.bold}Already send a notification for the Streamer, Next oooooooonne{Colors.reset} \n")
                 pass
             else:
                 print(f"\n{Colors.bold}{Colors.green}Streamer Online\n{Colors.reset}")
