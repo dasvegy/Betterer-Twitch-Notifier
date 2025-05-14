@@ -1,4 +1,4 @@
 {
-    "interval_minutes": 5,
-    "autostart": true
+    "interval_minutes": "1",
+    "autostart": "On"
 }

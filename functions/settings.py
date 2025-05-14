@@ -37,6 +37,16 @@ def settings(back_callback):
         input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")
         back_callback()
 
+    elif option == "3":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        autostart_setting = input(f"{Colors.orange}{Colors.bold}Enable Autostart?"
+                                  f"\n(On/Off){Colors.reset}"
+                                  f"\n\n> ")
+        write_setting("autostart",autostart_setting)
+
+        input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")
+        back_callback()
+
     elif option == "b" or option == "B":
         back_callback()
     elif option == "q" or option == "Q":

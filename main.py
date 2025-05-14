@@ -1,6 +1,11 @@
 from functions.tui import tui
 from functions.loop import run_checker_loop
 import argparse
+import json
+
+with open("settings.json", "r") as file:
+    settings_file = json.load(file)
+    interval_minutes = int(settings_file["interval_minutes"])
 
 def main():
     parser = argparse.ArgumentParser(description="Betterer Twitch Notifyer")
@@ -11,7 +16,7 @@ def main():
         tui()
     else:
         print("Starting the loop")
-        run_checker_loop()
+        run_checker_loop(interval_minutes)
 
 if __name__ == "__main__":
     main()
