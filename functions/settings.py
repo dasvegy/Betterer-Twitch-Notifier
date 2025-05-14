@@ -1,4 +1,5 @@
 from functions.colors import Colors
+from functions.autostart import check_autostart
 import json
 import os
 
@@ -42,10 +43,10 @@ def settings(back_callback):
     # Autostart Setting
     elif option == "2":
         os.system('cls' if os.name == 'nt' else 'clear')
-        autostart_setting = input(f"{Colors.orange}{Colors.bold}Enable Autostart?"
-                                  f"\n(On/Off){Colors.reset}"
+        autostart_setting = input(f"{Colors.orange}{Colors.bold}Setup Autostart?"
+                                  f"\n(Yes/No){Colors.reset}"
                                   f"\n\n> ")
-        write_setting("autostart",autostart_setting)
+        check_autostart()
 
         input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")
         back_callback()
@@ -55,7 +56,7 @@ def settings(back_callback):
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f"{Colors.purple}{Colors.bold}Betterer Twitch Notifyer{Colors.reset}"
               "\n------------------------ "
-              f"\nVersion:          {Colors.orange}0.22{Colors.reset}"
+              f"\nVersion:          {Colors.orange}0.23{Colors.reset}"
               f"\nBy:               {Colors.orange}vegy (aka dasvegy){Colors.reset}"
               f"\nOfficial Page:    {Colors.orange}https://github.com/dasvegy/Betterer-Twitch-Notifyer{Colors.reset}"
               f"\n\n ")

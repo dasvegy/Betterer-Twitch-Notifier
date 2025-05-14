@@ -25,6 +25,7 @@ if __name__ == "__main__":
     main()
 
 # to-do:
+# Autostart !!!
 # Tray?,
 # Notification opens Twitch on Click (win10toast, no idea for Linux),
 # Windows (😒) port
