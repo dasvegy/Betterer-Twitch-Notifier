@@ -24,5 +24,5 @@ if __name__ == "__main__":
 # to-do:
 # Tray?,
 # Notification opens Twitch on Click (win10toast, no idea for Linux),
-# Options
+# Windows (😒) port
 # in colors checken ob man CMD benutzt, und den colors befehl nutzten, da windows ein hundesohn ist
