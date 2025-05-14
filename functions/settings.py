@@ -21,6 +21,7 @@ def settings(back_callback):
                     f"\n{Colors.yellow}1. placeholder{Colors.reset}"
                     "\n2. Change how long should it wait till it checks for online Streamers"
                     "\n3. Autostart on Login"
+                    "\n4. Information"
                     "\n\nB: Go Back "
                     "\nQ: Quit "
                     "\n> ")
@@ -46,6 +47,19 @@ def settings(back_callback):
 
         input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")
         back_callback()
+
+    elif option == "4":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f"{Colors.purple}{Colors.bold}Betterer Twitch Notifyer{Colors.reset}"
+              "\n------------------------ "
+              f"\nVersion:          {Colors.orange}1.0{Colors.reset}"
+              f"\nBy:               {Colors.orange}vegy (aka dasvegy){Colors.reset}"
+              f"\nOfficial Page:    {Colors.orange}https://github.com/dasvegy/Betterer-Twitch-Notifyer{Colors.reset}"
+              f"\n\n ")
+
+        input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")
+        back_callback()
+
 
     elif option == "b" or option == "B":
         back_callback()
