@@ -1,5 +1,6 @@
 from functions.tui import tui
 from functions.loop import run_checker_loop
+from functions.load_streamer_file import check_file_no_empty
 from functions.colors import Colors
 import argparse
 import json
@@ -17,6 +18,7 @@ def main():
         tui()
     else:
         print(f"{Colors.bold}{Colors.green}Starting the loop{Colors.reset}\n")
+        check_file_no_empty()
         run_checker_loop(interval_minutes)
 
 if __name__ == "__main__":

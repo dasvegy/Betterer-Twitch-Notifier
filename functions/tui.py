@@ -1,12 +1,15 @@
-from functions.load_streamer_file import get_usernames
+from functions.load_streamer_file import get_usernames, check_file_no_empty
 from functions.streamer_to_file import add_strmrs_to_file, rm_strmrs_to_file, clear_strmrs_to_file
 from functions.settings import settings
 from functions.colors import Colors
 import os
 
-
+# The Terminal interface
 def tui():
+    # Clearing the Terminal
     os.system('cls' if os.name == 'nt' else 'clear')
+
+    # The interface itself
     option = input(f"{Colors.purple}{Colors.bold}Betterer Twitch Notifyer{Colors.reset}"
                    "\n------------------------ "
                    "\n1. Check Streamers in the list "
@@ -19,6 +22,7 @@ def tui():
     print("")
     if option == "1":
         print("Selected Option 1, Checking for Streamers\n")
+        check_file_no_empty()
         get_usernames()
 
     elif option == "2":
@@ -37,10 +41,12 @@ def tui():
         print("Selected Option 5, loading Settings\n")
         settings(tui)
 
+    # Quitting
     elif option == "q" or option == "Q":
         print(f"{Colors.red}{Colors.bold}Exiting...{Colors.reset}")
         quit()
 
+    # Error handeling
     else:
         print(f"{Colors.red}{Colors.bold}Error: Nothing Selected or user was to dumb to type right{Colors.reset}")
         quit()
