@@ -12,8 +12,8 @@ with open("settings.json", "r") as file:
 
 def main():
     parser = argparse.ArgumentParser(description="Betterer Twitch Notifyer")
-    parser.add_argument('--tui', action='store_true', help="Start the TUI menu")
-    parser.add_argument('--tray', action='store_true', help="Start only the Tray")
+    parser.add_argument('-tui', action='store_true', help="Start the TUI menu")
+    parser.add_argument('-tray', action='store_true', help="Start only the Tray")
     args = parser.parse_args()
 
     if args.tui:

@@ -56,7 +56,7 @@ def settings(back_callback):
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f"{Colors.purple}{Colors.bold}Betterer Twitch Notifyer{Colors.reset}"
               "\n------------------------ "
-              f"\nVersion:          {Colors.orange}0.24{Colors.reset}"
+              f"\nVersion:          {Colors.orange}0.25{Colors.reset}"
               f"\nBy:               {Colors.orange}vegy (aka dasvegy){Colors.reset}"
               f"\nOfficial Page:    {Colors.orange}https://github.com/dasvegy/Betterer-Twitch-Notifyer{Colors.reset}"
               f"\n\n ")
