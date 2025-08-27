@@ -1,5 +1,6 @@
 from functions.tui import tui
 from functions.loop import run_checker_loop
+from functions.tray import run_tray
 from functions.load_streamer_file import check_file_no_empty
 from functions.colors import Colors
 import argparse
@@ -11,11 +12,14 @@ with open("settings.json", "r") as file:
 
 def main():
     parser = argparse.ArgumentParser(description="Betterer Twitch Notifyer")
-    parser.add_argument('--tui', action='store_true', help="Start the TUI menu")
+    parser.add_argument('-tui', action='store_true', help="Start the TUI menu")
+    parser.add_argument('-tray', action='store_true', help="Start only the Tray")
     args = parser.parse_args()
 
     if args.tui:
         tui()
+    elif args.tray:
+        run_tray()
     else:
         print(f"{Colors.bold}{Colors.green}Starting the loop{Colors.reset}\n")
         check_file_no_empty()
