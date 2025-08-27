@@ -4,10 +4,6 @@ import requests
 
 strmrs_already_listed = []
 
-class StreamerNotFoundError(Exception):
-    def __init__(self, username):
-        super().__init__(f"Streamer '{username}' not found or returned no data.")
-
 def check_streamer_live(username):
     url = f"https://api.ivr.fi/v2/twitch/user?login={username}"
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -20,24 +16,24 @@ def check_streamer_live(username):
         data = response.json()
 
         if not data:
-            raise StreamerNotFoundError(username)
-
-        islive = data[0]["stream"]
-
-        if islive is None:
-            print(f"\n{Colors.bold}{Colors.red}Streamer Offline\n{Colors.reset}")
-            if username in strmrs_already_listed:
-                strmrs_already_listed.remove(username)
-            else:
-                pass
+            print(f"\nStreamer {username} not found. {Colors.bold}{Colors.red}Skipping.\n{Colors.reset}")
         else:
-            if username in strmrs_already_listed:
-                print(f"{Colors.orange}{Colors.bold}Already send a notification for the Streamer, Next oooooooonne{Colors.reset} \n")
-                pass
+            islive = data[0]["stream"]
+
+            if islive is None:
+                print(f"\n{Colors.bold}{Colors.red}Streamer Offline\n{Colors.reset}")
+                if username in strmrs_already_listed:
+                    strmrs_already_listed.remove(username)
+                else:
+                    pass
             else:
-                print(f"\n{Colors.bold}{Colors.green}Streamer Online\n{Colors.reset}")
-                strmrs_already_listed.append(username)
-                send_notification(username, data)
+                if username in strmrs_already_listed:
+                    print(f"{Colors.orange}{Colors.bold}Already send a notification for the Streamer, Next oooooooonne{Colors.reset} \n")
+                    pass
+                else:
+                    print(f"\n{Colors.bold}{Colors.green}Streamer Online\n{Colors.reset}")
+                    strmrs_already_listed.append(username)
+                    send_notification(username, data)
 
         print(f"DONE LOADING STREAMER {Colors.purple}{Colors.bold}{username}{Colors.reset}")
         print("---------------------------------------------------------\n")
