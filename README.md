@@ -11,7 +11,7 @@ This is still a **work-in-progress** software.
 - [x] Basic Functions
 - [X] TUI
 - [ ] GUI
-- [ ] Start on Login
+- [X] Start on Login
 
 ## Operating Systems
 - [X] Linux 
