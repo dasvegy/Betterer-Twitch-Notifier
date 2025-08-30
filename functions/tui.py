@@ -4,6 +4,7 @@ from functions.settings import settings
 from functions.colors import Colors
 import os
 
+
 # The Terminal interface
 def tui():
     # Clearing the Terminal

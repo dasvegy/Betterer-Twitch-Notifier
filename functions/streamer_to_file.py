@@ -6,10 +6,12 @@ import os
 # Defines the filepath
 filepath = "streamers.json"
 
+
 # the actual saving part
 def save_streamers(streamers):
     with open(filepath, "w") as f:
         json.dump(streamers, f, indent=4)
+
 
 def check_no_empty_slot():
     with open("streamers.json", "r") as file:
@@ -23,6 +25,7 @@ def check_no_empty_slot():
         json.dump(strmrs_file, file, indent=4)
 
     return strmrs_file
+
 
 # The Terminal interface (and backend) for saving the Streamer to the streamers.json file
 def add_strmrs_to_file(back_callback):
@@ -42,6 +45,7 @@ def add_strmrs_to_file(back_callback):
     input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")
     back_callback()
 
+
 # The Terminal interface (and backend) for removing the Streamer from the streamers.json file
 def rm_strmrs_to_file(back_callback):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -59,6 +63,7 @@ def rm_strmrs_to_file(back_callback):
 
     input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")
     back_callback()
+
 
 # The Terminal interface (and backend) for clearing the streamers.json file
 def clear_strmrs_to_file(back_callback):

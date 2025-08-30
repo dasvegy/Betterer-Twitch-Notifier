@@ -10,6 +10,7 @@ with open("settings.json", "r") as file:
     settings_file = json.load(file)
     interval_minutes = float(settings_file["interval_minutes"])
 
+
 def main():
     parser = argparse.ArgumentParser(description="Betterer Twitch Notifyer")
     parser.add_argument('-tui', action='store_true', help="Start the TUI menu")
@@ -24,6 +25,7 @@ def main():
         print(f"{Colors.bold}{Colors.green}Starting the loop{Colors.reset}\n")
         check_file_no_empty()
         run_checker_loop(interval_minutes)
+
 
 if __name__ == "__main__":
     main()

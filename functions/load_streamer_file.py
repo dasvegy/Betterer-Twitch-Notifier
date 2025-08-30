@@ -10,6 +10,7 @@ preset = [
 
 json_preset = json.dumps(preset, indent=4)
 
+
 def check_file_no_empty():
     with open("streamers.json", "r") as file:
         strmrs_file = json.load(file)
@@ -18,7 +19,7 @@ def check_file_no_empty():
     if not isinstance(strmrs_file, list):
         os.system('cls' if os.name == 'nt' else 'clear')
         input("Error: No Entrys, or no valid entrys \n"
-              f"Open the tui menu {Colors.yellow}{Colors.bold}(with --tui){Colors.reset}, then add some Streamers\n\n"
+              f"Open the tui menu {Colors.yellow}{Colors.bold}(with -tui){Colors.reset}, then add some Streamers\n\n"
               f"{Colors.red}Press {Colors.bold}Enter {Colors.reset}{Colors.red}to Exit...{Colors.reset}")
 
         quit()
@@ -39,6 +40,7 @@ def check_file_no_empty():
     else:
         pass
 
+
 # Loading the streamers from the streamers.json file
 def load_streamers(filepath="streamers.json"):
     try:
@@ -49,6 +51,7 @@ def load_streamers(filepath="streamers.json"):
             outfile.write(json_preset)
             print("streamers.json created, but have not written any streamers in it.")
         return json.loads(json_preset)
+
 
 def get_usernames():
     for username in load_streamers():
