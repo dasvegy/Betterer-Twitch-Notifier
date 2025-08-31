@@ -15,7 +15,7 @@ with open("settings.json", "r") as file:
 def main():
     parser = argparse.ArgumentParser(description=f"{name}")
     parser.add_argument('-tui', action='store_true', help="Start the TUI menu")
-    # parser.add_argument('-tray', action='store_true', help="Start loop with the Tray")
+    parser.add_argument('-tray', action='store_true', help="Start loop with the Tray")
     args = parser.parse_args()
 
     if args.tui:
@@ -34,6 +34,6 @@ if __name__ == "__main__":
 # to-do:
 # Autostart !!!
 # Tray?,
-# Notification opens Twitch on Click (win10toast, no idea for Linux),
+# Notification öffnet Twitch on Click (win10toast, no idea for Linux),
 # Windows (😒) port
-# in colors checken ob man CMD benutzt, und den colors befehl nutzten, da windows ein hundesohn ist
+# in colors checken ob man CMD benutzt, und den colors befehl nutzten.

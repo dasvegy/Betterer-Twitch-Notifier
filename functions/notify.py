@@ -5,6 +5,12 @@ from functions.download import download_pfp
 
 
 def send_notification(username, data):
+    pfp_dir = "pfps"
+
+    # create "pfps" folder, when it is not there.
+    if not os.path.exists(pfp_dir):
+        os.makedirs(pfp_dir)
+
     pfp_path = f"pfps/{username}.ico"
 
     # Check if the Icon already exists
