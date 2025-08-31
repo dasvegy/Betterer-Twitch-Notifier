@@ -5,11 +5,6 @@ from functions.load_streamer_file import check_file_no_empty
 from functions.colors import Colors
 from functions.variables import name
 import argparse
-import json
-
-with open("settings.json", "r") as file:
-    settings_file = json.load(file)
-    interval_minutes = float(settings_file["interval_minutes"])
 
 
 def main():

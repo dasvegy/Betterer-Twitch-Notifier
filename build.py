@@ -28,7 +28,7 @@ PyInstaller.__main__.run([
     "--onefile",
     "--windowed",
     f"--icon={ICON_ICO}",
-    "--name=Betterer Twitch Notifier",
+    "--name=betterertwitchnotifier",
 
     # Ganze functions/ einbinden
     f"--add-data={FUNCTIONS_FOLDER}:functions",

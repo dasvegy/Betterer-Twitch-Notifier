@@ -12,7 +12,7 @@ Type=Application
 Version={version_number}
 Name={name}
 Comment={name} -tray
-Exec=
+Exec=/bin/betterertwitchnotifier
 StartupNotify=false
 Terminal=false%   
 """

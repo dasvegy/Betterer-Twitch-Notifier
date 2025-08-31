@@ -38,6 +38,10 @@ def get_settings_path(filename="settings.json"):
 
 settings_file_path = get_settings_path("settings.json")
 
+with open(settings_file_path, "r") as file:
+    settings_file = json.load(file)
+    interval_minutes = float(settings_file["interval_minutes"])
+
 
 # Writing the Setting into the settings.json file
 def write_setting(setting_to_change, arg_to_change):

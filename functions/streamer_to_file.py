@@ -1,27 +1,24 @@
-from functions.load_streamer_file import load_streamers
+from functions.load_streamer_file import load_streamers, streamers_file_path
 from functions.colors import Colors
 import json
 import os
 
-# Defines the filepath
-filepath = "streamers.json"
-
 
 # the actual saving part
 def save_streamers(streamers):
-    with open(filepath, "w") as f:
+    with open(streamers_file_path, "w") as f:
         json.dump(streamers, f, indent=4)
 
 
 def check_no_empty_slot():
-    with open("streamers.json", "r") as file:
+    with open(streamers_file_path, "r") as file:
         strmrs_file = json.load(file)
 
     # removes empty string
     strmrs_file = [s for s in strmrs_file if s.strip() != ""]
 
     # saves the json file
-    with open("streamers.json", "w") as file:
+    with open(streamers_file_path, "w") as file:
         json.dump(strmrs_file, file, indent=4)
 
     return strmrs_file
