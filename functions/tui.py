@@ -2,6 +2,7 @@ from functions.load_streamer_file import get_usernames, check_file_no_empty
 from functions.streamer_to_file import add_strmrs_to_file, rm_strmrs_to_file, clear_strmrs_to_file
 from functions.settings import settings
 from functions.colors import Colors
+from functions.variables import name
 import os
 
 
@@ -11,7 +12,7 @@ def tui():
     os.system('cls' if os.name == 'nt' else 'clear')
 
     # The interface itself
-    option = input(f"{Colors.purple}{Colors.bold}Betterer Twitch Notifyer{Colors.reset}"
+    option = input(f"{Colors.purple}{Colors.bold}{name}{Colors.reset}"
                    "\n------------------------ "
                    "\n1. Check Streamers in the list "
                    "\n2. Add Streamer to the list "

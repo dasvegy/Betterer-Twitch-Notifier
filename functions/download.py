@@ -1,5 +1,7 @@
 import requests
 
+
+# Download the profile picture
 def download_pfp(pfp_url, save_path):
     try:
         img_data = requests.get(pfp_url).content

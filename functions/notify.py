@@ -1,7 +1,8 @@
 import os
 import platform
 from plyer import notification
-from .download import download_pfp
+from functions.download import download_pfp
+
 
 def send_notification(username, data):
     pfp_path = f"pfps/{username}.ico"
@@ -23,4 +24,4 @@ def send_notification(username, data):
         message=f'{data[0]["stream"]["title"]}',
         timeout=3,
         app_icon=pfp_path,
-    )   
+    )

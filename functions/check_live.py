@@ -4,6 +4,7 @@ import requests
 
 strmrs_already_listed = []
 
+
 def check_streamer_live(username):
     url = f"https://api.ivr.fi/v2/twitch/user?login={username}"
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -28,7 +29,8 @@ def check_streamer_live(username):
                     pass
             else:
                 if username in strmrs_already_listed:
-                    print(f"{Colors.orange}{Colors.bold}Already send a notification for the Streamer, Next oooooooonne{Colors.reset} \n")
+                    print(
+                        f"{Colors.orange}{Colors.bold}Already send a notification for the Streamer, Next oooooooonne{Colors.reset} \n")
                     pass
                 else:
                     print(f"\n{Colors.bold}{Colors.green}Streamer Online\n{Colors.reset}")

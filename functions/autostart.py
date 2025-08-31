@@ -1,5 +1,6 @@
 from functions.colors import Colors
 from functions.variables import version_number
+from functions.variables import name
 import os
 import sys
 
@@ -9,8 +10,8 @@ username = os.getlogin()
 desktop_entry = f"""[Desktop Entry]
 Type=Application
 Version={version_number}
-Name=Betterer Twitch Notifier
-Comment=Betterer Twitch Notifier -tray
+Name={name}
+Comment={name} -tray
 Exec=
 StartupNotify=false
 Terminal=false%   
