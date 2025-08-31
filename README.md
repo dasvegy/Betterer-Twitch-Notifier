@@ -15,7 +15,7 @@ This isn't supposed to work without issues at the moment.
 - [x] Basic Functions
 - [X] TUI
 - [ ] GUI
-- [X] Start on Login
+- [X] Start on Login (only on Linux at the moment)
 
 ## Operating Systems
 - [X] Linux 
