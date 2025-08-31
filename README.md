@@ -1,7 +1,11 @@
 # Betterer Twitch Notifier
-I wanted a software that notifies me when a streamer goes live. So I wrote it.\
-This is still a **work-in-progress** software.
+I wanted a software that notifies me when a streamer goes live. So I wrote it.
 
+## 
+This is still a **work-in-progress** software.\
+This isn't supposed to work without issues at the moment.
+
+## Screenshot of the main Menu
 <p align="center">
     <img src="https://raw.githubusercontent.com/dasvegy/Betterer-Twitch-Notifier/master/images/screenshot.png">
     <br>
@@ -11,7 +15,7 @@ This is still a **work-in-progress** software.
 - [x] Basic Functions
 - [X] TUI
 - [ ] GUI
-- [ ] Start on Login
+- [X] Start on Login
 
 ## Operating Systems
 - [X] Linux 
