@@ -1,16 +1,17 @@
 import PyInstaller.__main__
+import sys
 import os
 
 user_os = sys.platform
 
-if user_os == 'linux':
-    os = "linux"
+if user_os.startswith('linux'):
+    target_os = "linux"
 elif user_os == 'darwin':
-    os = "macos"
+    target_os = "macos"
 elif user_os == 'win32':
-    os = "win"
+    target_os = "win"
 else:
-    print("Unsupported OS!")
+    raise RuntimeError("Unsupported OS!")
 
 # base directory
 BASE_DIR = os.path.abspath(".")
@@ -34,7 +35,7 @@ PyInstaller.__main__.run([
     f"--add-data={ICON_PNG}:.",
     f"--add-data={ICON_ICO}:.",
 
-    f"--hidden-import=plyer.platforms.{os}.notification",
+    f"--hidden-import=plyer.platforms.{target_os}.notification",
 
     MAIN_SCRIPT
 ])
