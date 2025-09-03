@@ -4,9 +4,11 @@ from functions.variables import name
 import os
 import sys
 
+# Get username and Operating System
 user_os = sys.platform
 username = os.getlogin()
 
+# .desktop file for Linux
 desktop_entry = f"""[Desktop Entry]
 Type=Application
 Version={version_number}
@@ -17,6 +19,7 @@ StartupNotify=false
 Terminal=false%   
 """
 
+# If the user is running Linux, set the variables so it goes to its place
 if user_os == 'linux':
     # Variables
     AUTOSTART_DIR = os.path.expanduser(f"/home/{username}/.config/autostart")

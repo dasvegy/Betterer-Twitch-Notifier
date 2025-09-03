@@ -30,7 +30,6 @@ PyInstaller.__main__.run([
     f"--icon={ICON_ICO}",
     "--name=betterertwitchnotifier",
 
-    # Ganze functions/ einbinden
     f"--add-data={FUNCTIONS_FOLDER}:functions",
     f"--add-data={ICON_PNG}:.",
     f"--add-data={ICON_ICO}:.",
