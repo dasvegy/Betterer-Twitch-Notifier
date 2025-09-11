@@ -19,11 +19,14 @@ BASE_DIR = os.path.abspath(".")
 # paths
 MAIN_SCRIPT = os.path.join(BASE_DIR, "main.py")
 FUNCTIONS_FOLDER = os.path.join(BASE_DIR, "functions")
-ICON_ICO = os.path.join(BASE_DIR, "icon.ico")
-ICON_PNG = os.path.join(BASE_DIR, "icon.png")
+ICON_ICO = os.path.join(BASE_DIR, "icon.ico:.")
+ICON_PNG = os.path.join(BASE_DIR, "icon.png:.")
+
+print("LIIIIIIIGMAAAAAAAA" + ICON_PNG)
 
 # pyinstaller setup
 PyInstaller.__main__.run([
+    "--strip",
     "--noconfirm",
     "--onefile",
     "--windowed",
@@ -31,8 +34,8 @@ PyInstaller.__main__.run([
     "--name=betterertwitchnotifier",
 
     f"--add-data={FUNCTIONS_FOLDER}:functions",
-    f"--add-data={ICON_PNG}:.",
-    f"--add-data={ICON_ICO}:.",
+    f"--add-data={ICON_PNG}",
+    f"--add-data={ICON_ICO}",
 
     f"--hidden-import=plyer.platforms.{target_os}.notification",
 

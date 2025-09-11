@@ -31,6 +31,8 @@ def main():
 if __name__ == "__main__":
     main()
 
+quit()
+
 # to-do:
 # Autostart !!!
 # Tray?,
