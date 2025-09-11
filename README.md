@@ -1,7 +1,4 @@
 # Betterer Twitch Notifier
-I wanted a software that notifies me when a streamer goes live. So I wrote it.
-
-## 
 This is still a **work-in-progress** software.\
 This isn't supposed to work without issues at the moment.
 
