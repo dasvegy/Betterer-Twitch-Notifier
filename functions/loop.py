@@ -7,4 +7,4 @@ def run_checker_loop(interval_minutes):
     while True:
         get_usernames()
         print(f"Waiting {interval_minutes} minutes...\n")
-        time.sleep(interval_minutes * 60)
+        time.sleep(interval_minutes * int(60))

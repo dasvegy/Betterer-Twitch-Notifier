@@ -15,7 +15,7 @@ def get_config_path():
         raise RuntimeError(f"Unsupported OS: {sys.platform}")
 
     os.makedirs(config_dir, exist_ok=True)
-    return os.path.join(config_dir, "config.json")
+    return os.path.join(config_dir, "settings.json")
 
 
 def load_config():

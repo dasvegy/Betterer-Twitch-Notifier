@@ -1,18 +1,15 @@
-from plyer import notification
 from functions.download import download_pfp
 from functions.variables import name_nospace
+from functions.colors import Colors
+from plyer import notification
+from PIL import Image
 import os
 import sys
-import platform
 
 user_os = sys.platform
 
 
 def get_pfps_dir(directory="pfps"):
-    """
-
-    :rtype: str
-    """
     if sys.platform.startswith("linux"):
         config_dir = os.path.join(os.path.expanduser("~"), ".config", name_nospace)
     elif sys.platform == "win32":
@@ -42,9 +39,14 @@ def send_notification(username, data):
     else:
         print("Icon already exists, skipping download.")
 
+    if sys.platform == "win32":
+        img = Image.open(pfp_path)
+        img = img.resize((600, 600), Image.Resampling.LANCZOS)
+        img.save(pfp_path, format="ICO")
+
     notification.notify(
         title=f"{username} is online!",
         message=f'{data[0]["stream"]["title"]}',
-        timeout=3,
+        timeout=2,
         app_icon=pfp_path,
     )
