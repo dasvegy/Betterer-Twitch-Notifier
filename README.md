@@ -12,12 +12,12 @@ This isn't supposed to work without issues at the moment.
 - [x] Basic Functions
 - [X] TUI
 - [ ] GUI
-- [X] Start on Login (only on Linux at the moment)
+- [ ] Start on Login
 
 ## Operating Systems
 - [X] Linux 
 - [ ] macOS
-- [ ] Windows
+- [X] Windows
 
 ### Why are Windows and macOS not compatible rn? 
 So... my plan is to support all major Operating Systems (Linux, Windows, MacOS), only Linux works at the moment.
