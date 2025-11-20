@@ -6,26 +6,38 @@ from functions.colors import Colors
 from functions.variables import name
 from functions.config import load_config
 import argparse
+import asyncio
+
+
+async def async_main(args, config):
+    # launch tray
+    if args.tray:
+        run_tray()
+
+    print(f"{Colors.bold}{Colors.green}Starting the loop{Colors.reset}\n")
+    check_file_no_empty()
+
+    await run_checker_loop(config["interval_minutes"])
 
 
 def main():
-
-    # So you can set Arguments
     parser = argparse.ArgumentParser(description=f"{name}")
     parser.add_argument('-tui', action='store_true', help="Start the TUI menu")
     parser.add_argument('-tray', action='store_true', help="Start loop with the Tray")
     args = parser.parse_args()
 
-    config = load_config()
-
     if args.tui:
         tui()
-    elif args.tray:
+        return
+
+    config = load_config()
+
+    # Tray starten (Thread)
+    if args.tray:
         run_tray()
-    else:
-        print(f"{Colors.bold}{Colors.green}Starting the loop{Colors.reset}\n")
-        check_file_no_empty()
-        run_checker_loop(config["interval_minutes"])
+
+    # Checker-Loop synchron starten
+    run_checker_loop(config["interval_minutes"])
 
 
 if __name__ == "__main__":

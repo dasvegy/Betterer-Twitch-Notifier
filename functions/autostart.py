@@ -13,8 +13,8 @@ desktop_entry = f"""[Desktop Entry]
 Type=Application
 Version={version_number}
 Name={name}
-Comment={name} -tray
-Exec=/bin/betterertwitchnotifier
+Comment=betterertwitchnotifier -tray
+Exec=/home/{username}/.local/bin/betterertwitchnotifier
 StartupNotify=false
 Terminal=false%   
 """

@@ -1,9 +1,17 @@
-from functions.variables import name
-from pystray import MenuItem as item
-from pystray import Menu as menu
-from PIL import Image
+import os
+import sys
 import pystray
-import asyncio
+import threading
+from PIL import Image
+from pystray import Menu, MenuItem
+from functions.variables import name, name_nospace
+import functions.loop as loop   # <--- richtiges import!!
+
+
+def quit_everything(icon, item):
+    print("sigma")
+    loop.stop_loop = True       # <--- echte Variable setzen
+    tray.stop()
 
 
 def on_clicked(icon, item):
@@ -14,14 +22,24 @@ def on_clicked(icon, item):
 
 
 menu_items = [
-    item(name, on_clicked),
-    menu.SEPARATOR,
-    item('Quit', lambda icon, item: tray.stop()),
+    MenuItem(name, on_clicked),
+    Menu.SEPARATOR,
+    MenuItem('Quit', quit_everything),
 ]
 
-tray = pystray.Icon(name, Image.open("icon.png"), name,
-                    menu=menu(*menu_items))
+
+if sys.platform == "linux":
+    config_dir = os.path.join(os.path.expanduser("~"), ".config", name_nospace)
+elif sys.platform == "win32":
+    config_dir = os.path.join(os.environ.get("APPDATA", os.path.expanduser("~")), name_nospace)
+elif sys.platform == "darwin":
+    config_dir = os.path.join(os.path.expanduser("~"), "Library", "Application Support", name_nospace)
+else:
+    raise RuntimeError(f"Unsupported OS: {sys.platform}")
+
+icon = config_dir + "/icon.png"
+tray = pystray.Icon(name, Image.open(icon), name, menu=Menu(*menu_items))
 
 
 def run_tray():
-    tray.run()
+    threading.Thread(target=tray.run, daemon=True).start()

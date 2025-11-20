@@ -10,12 +10,12 @@ This isn't supposed to work without issues at the moment.
 
 ## To-Do's
 - [x] Basic Functions
-- [X] TUI
+- [x] TUI
 - [ ] GUI
-- [ ] Start on Login
+- [x] Start on Login
 
 ## Operating Systems
-- [X] Linux 
+- [x] Linux 
 - [ ] macOS
-- [X] Windows
+- [x] Windows
 
