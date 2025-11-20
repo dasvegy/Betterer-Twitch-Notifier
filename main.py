@@ -46,7 +46,4 @@ if __name__ == "__main__":
 quit()
 
 # to-do:
-# Autostart !!!
-# Tray?,
-# Notification öffnet Twitch on Click (win10toast, no idea for Linux),
-# Windows (😒) port
+# Notification opens stream on click (win10toast on windows, idk for linux or mac)
