@@ -1,6 +1,5 @@
 # Betterer Twitch Notifier
-This is still a **work-in-progress** software.\
-This isn't supposed to work without issues at the moment.
+This is still a **work-in-progress** software.
 
 ## Screenshot of the main Menu
 <p align="center">
