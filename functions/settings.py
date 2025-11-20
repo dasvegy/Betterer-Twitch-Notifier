@@ -9,7 +9,7 @@ import sys
 user_os = sys.platform
 
 preset = {
-    "interval_minutes": "15",
+    "interval_minutes": 15,
 }
 
 json_preset = json.dumps(preset, indent=4)
