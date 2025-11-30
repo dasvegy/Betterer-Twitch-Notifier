@@ -1,6 +1,7 @@
 from functions.download import download_pfp
-from functions.variables import name_nospace
+from functions.variables import name_nospace, name
 from functions.colors import Colors
+from functions.logging import logger
 from plyer import notification
 from PIL import Image
 import os
@@ -10,6 +11,7 @@ user_os = sys.platform
 
 
 def get_pfps_dir(directory="pfps"):
+    logger.info("Getting profile pictures")
     if sys.platform.startswith("linux"):
         config_dir = os.path.join(os.path.expanduser("~"), ".config", name_nospace)
     elif sys.platform == "win32":
@@ -18,6 +20,7 @@ def get_pfps_dir(directory="pfps"):
         config_dir = os.path.join(os.path.expanduser("~"), "Library", "Application Support", name_nospace)
     else:
         raise RuntimeError(f"Unsupported OS: {sys.platform}")
+
 
     # create .config / or what folder on what os
     os.makedirs(config_dir, exist_ok=True)
@@ -30,6 +33,7 @@ def get_pfps_dir(directory="pfps"):
 
 
 def send_notification(username, data):
+    logger.info("Sending notification")
     pfp_dir = get_pfps_dir()
     pfp_path = os.path.join(pfp_dir, f"{username}.ico")
 
@@ -45,6 +49,7 @@ def send_notification(username, data):
         img.save(pfp_path, format="ICO")
 
     notification.notify(
+        app_name=name,
         title=f"{username} is online!",
         message=f'{data[0]["stream"]["title"]}',
         timeout=2,

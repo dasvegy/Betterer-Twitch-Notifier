@@ -3,7 +3,7 @@ from functions.streamer_to_file import add_strmrs_to_file, rm_strmrs_to_file, cl
 from functions.settings import settings
 from functions.colors import Colors
 from functions.variables import name
-import os
+import os, sys
 
 
 # The Terminal interface
@@ -46,9 +46,9 @@ def tui():
     # Quitting
     elif option == "q" or option == "Q":
         print(f"{Colors.red}{Colors.bold}Exiting...{Colors.reset}")
-        quit()
+        sys.exit(0)
 
     # Error handeling
     else:
         print(f"{Colors.red}{Colors.bold}Error: Nothing Selected or user was to dumb to type right{Colors.reset}")
-        quit()
+        sys.exit(0)

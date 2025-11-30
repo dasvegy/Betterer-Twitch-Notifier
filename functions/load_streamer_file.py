@@ -49,7 +49,7 @@ def check_file_no_empty():
               f"Open the tui menu {Colors.yellow}{Colors.bold}(with -tui){Colors.reset}, then add some Streamers\n\n"
               f"{Colors.red}Press {Colors.bold}Enter {Colors.reset}{Colors.red}to Exit...{Colors.reset}")
 
-        quit()
+        sys.exit(0)
 
 
 # Loading the streamers from the streamers.json file

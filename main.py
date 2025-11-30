@@ -1,12 +1,20 @@
-from functions.tui import tui
+import argparse
+import sys
+
+from functions.colors import Colors
+from functions.config import load_config
+from functions.load_streamer_file import check_file_no_empty
+from functions.logging import logger
 from functions.loop import run_checker_loop
 from functions.tray import run_tray
-from functions.load_streamer_file import check_file_no_empty
-from functions.colors import Colors
-from functions.variables import name
-from functions.config import load_config
-import argparse
-import asyncio
+from functions.tui import tui
+from functions.variables import name, version_number
+from functions.for_windows import attach_or_create_console
+
+logger.info("Starting...")
+logger.info(f"Operating System: {sys.platform}")
+logger.info(f"Version: {version_number}")
+logger.info("vegy is the best")
 
 
 async def async_main(args, config):
@@ -27,6 +35,7 @@ def main():
     args = parser.parse_args()
 
     if args.tui:
+        attach_or_create_console()
         tui()
         return
 
@@ -43,7 +52,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-quit()
-
-# to-do:
-# Notification opens stream on click (win10toast on windows, idk for linux or mac)
+sys.exit(0)

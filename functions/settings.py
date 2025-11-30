@@ -110,7 +110,7 @@ def settings(back_callback):
     # Quitting
     elif option == "q" or option == "Q":
         print(f"{Colors.red}{Colors.bold}Exiting...{Colors.reset}")
-        quit()
+        sys.exit(0)
 
     # Error so it won't crash
     else:
