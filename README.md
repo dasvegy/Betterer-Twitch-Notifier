@@ -10,7 +10,6 @@
 - [x] Basic Functions
 - [x] TUI
 - [ ] GUI
-- [x] Start on Login
 
 ## Operating Systems
 - [x] Linux 
