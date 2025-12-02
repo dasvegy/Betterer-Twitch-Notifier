@@ -2,6 +2,7 @@ import os
 import sys
 import pystray
 import threading
+import webbrowser
 from PIL import Image
 from pystray import Menu, MenuItem
 from functions.variables import name, name_nospace
@@ -16,7 +17,7 @@ def quit_everything(icon, item):
 
 def on_clicked(icon, item):
     if item.text == "Betterer Twitch Notifier":
-
+        webbrowser.open("https://github.com/dasvegy/Betterer-Twitch-Notifier")
     else:
         print(f'Clicked on {item}')
 
