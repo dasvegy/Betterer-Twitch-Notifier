@@ -1,4 +1,4 @@
-from functions.variables import name
+from functions.variables import name, name_nospace
 import PyInstaller.__main__
 import sys
 import os
@@ -53,7 +53,7 @@ else:
         "--onefile",
         # "--windowed",
         f"--icon={ICON_ICO}",
-        "--name=Betterer Twitch Notifier",
+        f"--name={name_nospace}",
 
         f"--add-data={FUNCTIONS_FOLDER}:functions",
         f"--add-data={ICON_PNG}",
