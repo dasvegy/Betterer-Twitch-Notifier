@@ -5,18 +5,18 @@ import threading
 from PIL import Image
 from pystray import Menu, MenuItem
 from functions.variables import name, name_nospace
-import functions.loop as loop   # <--- richtiges import!!
+import functions.loop as loop
 
 
 def quit_everything(icon, item):
     print("sigma")
-    loop.stop_loop = True       # <--- echte Variable setzen
+    loop.stop_loop = True
     tray.stop()
 
 
 def on_clicked(icon, item):
     if item.text == "Betterer Twitch Notifier":
-        pass
+
     else:
         print(f'Clicked on {item}')
 
