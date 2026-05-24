@@ -1,5 +1,6 @@
 import argparse
 import sys
+import os
 
 from functions.colors import Colors
 from functions.config import load_config
@@ -11,6 +12,7 @@ from functions.tui import tui
 from functions.variables import name, version_number
 from functions.for_windows import attach_or_create_console
 
+logger.info(" ")
 logger.info("Starting...")
 logger.info(f"Operating System: {sys.platform}")
 logger.info(f"Version: {version_number}")
@@ -35,7 +37,8 @@ def main():
     args = parser.parse_args()
 
     if args.tui:
-        attach_or_create_console()
+        if sys.platform == "win32":
+            attach_or_create_console()
         tui()
         return
 
