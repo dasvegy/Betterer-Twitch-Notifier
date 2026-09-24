@@ -65,8 +65,9 @@ def settings(back_callback):
     option = input(f"{Colors.purple}{Colors.bold}Betterer Twitch Notifier{Colors.reset}"
                    "\n------------------------ "
                    "\n1. Change how long should it wait till it checks for online Streamers"
-                   "\n2. Autostart on Login"
-                   "\n3. Information"
+                   "\n2. Create Desktop Shortcut"
+                   "\n3. Autostart on Login"
+                   "\n4. Information"
                    "\n\nB: Go Back "
                    "\nQ: Quit "
                    "\n> ")
@@ -82,16 +83,24 @@ def settings(back_callback):
         input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")
         back_callback()
 
-    # Autostart Setting
+    # Desktop Shortcut
     elif option == "2":
         os.system('cls' if os.name == 'nt' else 'clear')
-        autostart_ui(settings)
+        autostart_ui("Desktop Shortcut", settings)
+
+        input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")
+        back_callback()
+
+    # Autostart Setting
+    elif option == "3":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        autostart_ui("Autostart", settings)
 
         input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")
         back_callback()
 
     # Information Page
-    elif option == "3":
+    elif option == "4":
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f"{Colors.purple}{Colors.bold}Betterer Twitch Notifier{Colors.reset}"
               "\n------------------------ "

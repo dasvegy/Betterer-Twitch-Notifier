@@ -9,7 +9,7 @@ from functions.tray import run_tray
 from functions.tui import tui
 from functions.variables import name, version_number
 
-WINDOW_RESOLUTION = "320x480"
+WINDOW_RESOLUTION = "420x560"
 
 TitleFont = ("Iosevka", 14)
 NormalFont = ("Iosevka", 12)

@@ -10,36 +10,47 @@ username = os.getlogin()
 
 # .desktop file for Linux
 desktop_entry = f"""[Desktop Entry]
+Comment=Twitch Notifications
+Exec=$HOME/.local/bin/betterertwitchnotifier
+Icon=/home/konstantin/.config/betterertwitchnotifier/icon.ico
+Name=Betterer Twitch Notifier
+NoDisplay=false
+Path=
+PrefersNonDefaultGPU=false
+StartupNotify=true
+Terminal=false
+TerminalOptions=
 Type=Application
-Version={version_number}
-Name={name}
-Comment=betterertwitchnotifier -tray
-Exec=/home/{username}/.local/bin/betterertwitchnotifier
-StartupNotify=false
-Terminal=false%   
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+
+Actions=terminal;tray
+
+[Desktop Action terminal]
+Exec=$HOME/.local/bin/betterertwitchnotifier -tui
+Icon=utilities-terminal
+Name=Start in Terminal
+Terminal=true
+
+[Desktop Action tray]
+Exec=$HOME/.local/bin/betterertwitchnotifier -tray
+Name=Start in Tray (not working atm)
+Icon=applications-education-symbolic
 """
 
-# If the user is running Linux, set the variables so it goes to its place
-if user_os == 'linux':
-    # Variables
-    AUTOSTART_DIR = os.path.expanduser(f"/home/{username}/.config/autostart")
-    DESKTOP_FILE = os.path.join(AUTOSTART_DIR, "BettererTwitchNotifier.desktop")
-    AUTOSTART_FILE = os.path.expanduser(f"/home/{username}/.config/autostart/BettererTwitchNotifier.desktop")
-
-
-def autostart_setup():
-    os.makedirs(AUTOSTART_DIR, exist_ok=True)
+def desktop_entry_setup(SHOTCUT_DIR, DESKTOP_FILE):
+    os.makedirs(SHOTCUT_DIR, exist_ok=True)
     with open(DESKTOP_FILE, "w") as f:
         f.write(desktop_entry)
 
     print(f"{Colors.green}{Colors.bold}Setup complete!{Colors.reset}\n")
 
 
-def autostart_ui(back_callback):
-    autostart_yesorno = input(f"{Colors.orange}{Colors.bold}Autostart Setup{Colors.reset}"
+def autostart_ui(whatitis, back_callback):
+    autostart_yesorno = input(f"{Colors.orange}{Colors.bold}{whatitis} Setup{Colors.reset}"
                               f"\n------------------------\n"
                               f"{Colors.orange}{Colors.bold}"
-                              f"Setup Autostart?"
+                              f"Setup {whatitis}?"
                               f"\n(Yes/No){Colors.reset}"
                               f"\n\n> ")
 
@@ -49,34 +60,47 @@ def autostart_ui(back_callback):
 
         # Linux
         if user_os == 'linux':
-            print(f"{Colors.orange}{Colors.bold}Autostart Setup{Colors.reset}"
+            if whatitis == "Desktop Shortcut":
+                SHOTCUT_DIR = os.path.expanduser(f"/home/{username}/.local/share/applications")
+                DESKTOP_FILE = os.path.join(SHOTCUT_DIR, "betterertwitchnotifier.desktop")
+                DOT_DESKTOP_FULL_DIR = os.path.expanduser(
+                    f"/home/{username}/.local/share/applications/betterertwitchnotifier.desktop")
+            elif whatitis == "Autostart":
+                SHOTCUT_DIR = os.path.expanduser(f"/home/{username}/.config/autostart")
+                DESKTOP_FILE = os.path.join(SHOTCUT_DIR, "betterertwitchnotifier.desktop")
+                DOT_DESKTOP_FULL_DIR = os.path.expanduser(
+                    f"/home/{username}/.config/autostart/betterertwitchnotifier.desktop")
+
+            print(f"{Colors.orange}{Colors.bold}{whatitis} Setup{Colors.reset}"
                   f"\n------------------------")
 
             # Check if autostart is already setup and give the user the choice what it should to do
-            if os.path.exists(AUTOSTART_FILE):
-                autostart_exists_prompt = input(f"Autostart already setup\n"
+            if os.path.exists(DOT_DESKTOP_FULL_DIR):
+                autostart_exists_prompt = input(f"{whatitis} already setup\n"
                                                 f"\n1. Setup again"
-                                                f"\n2. Remove autostart"
+                                                f"\n2. Remove {whatitis}"
+                                                f"\nB. Go Back"
                                                 f"\n> ")
 
-
                 if autostart_exists_prompt == "1":
-                    autostart_setup()
+                    desktop_entry_setup(SHOTCUT_DIR, DESKTOP_FILE)
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    print(f"{Colors.orange}{Colors.bold}Autostart Setup{Colors.reset}"
+                    print(f"{Colors.orange}{Colors.bold}{whatitis} Setup{Colors.reset}"
                           f"\n------------------------"
                           f"\n{Colors.green}{Colors.bold}Setup complete!{Colors.reset}\n")
                 elif autostart_exists_prompt == "2":
-                    os.remove(AUTOSTART_FILE)
+                    os.remove(DOT_DESKTOP_FULL_DIR)
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    print(f"{Colors.orange}{Colors.bold}Autostart Setup{Colors.reset}"
+                    print(f"{Colors.orange}{Colors.bold}{whatitis} Setup{Colors.reset}"
                           f"\n------------------------"
                           f"\n{Colors.green}{Colors.bold}Setup complete!{Colors.reset}\n")
+                elif autostart_exists_prompt == "B":
+                    back_callback()
                 else:
                     pass
 
             else:
-                autostart_setup()
+                desktop_entry_setup(SHOTCUT_DIR, DESKTOP_FILE)
 
         # macOS
         elif user_os == 'darwin':
