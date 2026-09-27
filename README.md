@@ -2,7 +2,7 @@
 🚧 This is still a **work-in-progress** software 🚧
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/dasvegy/Betterer-Twitch-Notifier/master/images/screenshot.png">
+    <img src="https://raw.githubusercontent.com/dasvegy/Betterer-Twitch-Notifier/refs/heads/master/images/screenshot.png">
     <br>
 </p>
 
