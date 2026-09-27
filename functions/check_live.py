@@ -13,7 +13,7 @@ def check_streamer_live(username):
 
     if response.status_code == 200:
         print(f"Loading Streamer: {Colors.purple}{Colors.bold}{username}{Colors.reset}")
-        print(f"Successful: code {Colors.green}{Colors.bold}200{Colors.reset}")
+        print(f"Successful: Code {Colors.green}{Colors.bold}200{Colors.reset}")
         data = response.json()
 
         if not data:

@@ -77,7 +77,6 @@ def settings(back_callback):
         os.system('cls' if os.name == 'nt' else 'clear')
         frequency_setting = int(input(
             f"{Colors.orange}{Colors.bold}Enter the number of minutes to wait before checking for online streamers"
-            f"\n(In minutes){Colors.reset}"
             f"\n\n> "))
         write_setting("interval_minutes", frequency_setting)
         input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")

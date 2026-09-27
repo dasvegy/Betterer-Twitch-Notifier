@@ -1,7 +1,5 @@
 import argparse
 import sys
-import os
-
 from functions.colors import Colors
 from functions.config import load_config
 from functions.load_streamer_file import check_file_no_empty
