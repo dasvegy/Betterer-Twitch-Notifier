@@ -1,3 +1,3 @@
-version_number = 0.38
+version_number = "0.39"
 name = "Betterer Twitch Notifier"
 name_nospace = "betterertwitchnotifier"

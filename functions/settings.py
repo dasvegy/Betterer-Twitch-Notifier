@@ -103,9 +103,9 @@ def settings(back_callback):
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f"{Colors.purple}{Colors.bold}Betterer Twitch Notifier{Colors.reset}"
               "\n------------------------ "
-              f"\nVersion:          {Colors.orange}{version_number}{Colors.reset}"
-              f"\nBy:               {Colors.orange}vegy (aka dasvegy){Colors.reset}"
-              f"\nOfficial Page:    {Colors.orange}https://github.com/dasvegy/Betterer-Twitch-Notifier{Colors.reset}"
+              f"\nVersion:          {Colors.blue}{version_number}{Colors.reset}"
+              f"\nBy:               {Colors.blue}vegy{Colors.reset}"
+              f"\nOfficial Page:    {Colors.blue}https://github.com/dasvegy/Betterer-Twitch-Notifier{Colors.reset}"
               f"\n\n ")
 
         input(f"{Colors.orange}Press {Colors.bold}Enter {Colors.reset}{Colors.orange}to go back...{Colors.reset}")

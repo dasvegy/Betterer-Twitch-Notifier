@@ -7,4 +7,4 @@ class Colors:
     yellow = '\033[93m'
     red = '\033[31m'
     green = '\033[32m'
-
+    blue = '\033[94m'
