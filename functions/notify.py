@@ -1,6 +1,5 @@
 from functions.download import download_pfp
 from functions.variables import name_nospace, name
-from functions.colors import Colors
 from functions.logging import logger
 from plyer import notification
 from PIL import Image
